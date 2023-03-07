@@ -1,8 +1,10 @@
 # Prerequisites
-*
-!/**/
-!*.*
 *.d
+
+# For Exe
+*
+!*.*
+!*/
 
 # Compiled Object files
 *.slo
