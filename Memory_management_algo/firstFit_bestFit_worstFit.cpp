@@ -32,18 +32,18 @@ void bestFit(vector<int>bsizes, int bn, vector<int>psizes, int pn) {
     vector<int> allocation(pn, -1);
 
     for (int i = 0; i < pn; i++) {
-        int worstIdx = -1;
+        int bestIdx = -1;
         for (int j = 0; j < bn; j++) {
             if (bsizes[j] >= psizes[i]) {
-                if (worstIdx == -1) worstIdx = j;
-                else if (bsizes[worstIdx] > bsizes[j]) {
-                    worstIdx = j;
+                if (bestIdx == -1) bestIdx = j;
+                else if (bsizes[bestIdx] > bsizes[j]) {
+                    bestIdx = j;
                 }
             }
         }
-        if (worstIdx != -1) {
-            allocation[i] = worstIdx;
-            bsizes[worstIdx] -= psizes[i];
+        if (bestIdx != -1) {
+            allocation[i] = bestIdx;
+            bsizes[bestIdx] -= psizes[i];
         }
     }
 

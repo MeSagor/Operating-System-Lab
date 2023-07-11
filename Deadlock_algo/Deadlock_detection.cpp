@@ -21,6 +21,14 @@ bool haveCycle(int cur, vector<bool>& visited, vector<vector<int>>& graph) {
 int main() {
     freopen("input.txt", "r", stdin);
 
+    // 5 6
+    // 1 2
+    // 2 3
+    // 2 4
+    // 2 5
+    // 3 4
+    // 4 1
+
     int n, m;
     cin >> n >> m;
 
@@ -32,16 +40,11 @@ int main() {
         graph[a].push_back(b);
     }
 
-    for (int i = 1; i < n + 1; i++) {
-        if (!visited[i]) {
-            bool have_cycle = haveCycle(i, visited, graph);
-            if (have_cycle) {
-                cout << endl << "Deadlock Found!" << endl;
-                break;
-            } else {
-                cout << endl << "No Deadlock Found" << endl;
-                break;
-            }
-        }
+
+    bool have_cycle = haveCycle(1, visited, graph);
+    if (have_cycle) {
+        cout << endl << "Deadlock Found!" << endl;
+    } else {
+        cout << endl << "No Deadlock Found" << endl;
     }
 }
